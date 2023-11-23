@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import CrearUser from "./CrearUser";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "../";
 

@@ -25,17 +25,16 @@ function Footer() {
           <div className="col">
             <h4>Desarrolladores</h4>
             <ui className="list-unstyled">
-              <li>Ignacio Rivero </li>
-              <br/>
+              <li>Ignacio Rivero, </li>
               <li>Richard Vasques</li> 
             </ui>
           </div>
           <div className="col">
             <h4>Redes Sociales</h4>
             <ui className="list-unstyled">
-              <li>Instagram:@RRBBOOKING</li>
+              <li>Instagram:@RRBBOKING</li>
               <br/>
-              <li>Correo: rrbooking@contacto.com</li>
+              <li>Correo: rrboking@contacto.com</li>
             </ui>
           </div>
         </div>
