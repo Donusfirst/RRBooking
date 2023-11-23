@@ -6,8 +6,7 @@ function Admin() {
   return (
     <div>
     <Navbar/>
-      <h1><CompShowUser/></h1>
-
+    <h1><CompShowUser/></h1>
     </div>
   )
 }

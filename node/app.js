@@ -3,6 +3,7 @@ import cors from 'cors';
 import db from "./database/db.js"
 import usuariorouts from "./routs/routsusuarios.js"
 
+
 const app = express()
 
 app.use(cors())

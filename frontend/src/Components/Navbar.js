@@ -9,17 +9,13 @@ const Navbar = () => {
     const handleReload = () => {
       setShouldReload(true);
     };
-
     if (shouldReload) {
       window.location.reload();
     }
-
     return handleReload;
   }
-
   const handleReload = useReloadAndRedirect();
   return (
-
     <>
       <NavbarContainer>
         <NavbarWrapper>

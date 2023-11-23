@@ -144,9 +144,12 @@ background-color:rgb(150, 182, 197);
   max-width: 768px
 }
 
-
-
-/*popup*/
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según tus preferencias */
+}
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -160,7 +163,7 @@ background-color:rgb(150, 182, 197);
 }
 
 .popup-content {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 4px;
