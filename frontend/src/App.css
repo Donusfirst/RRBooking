@@ -1,0 +1,190 @@
+.App {
+  text-align: center;
+}
+
+.slide-fade {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+
+.fondo-login {
+  background-color: #49426c;
+}
+
+ul,
+li {
+  list-style: none;
+  white-space: nowrap;
+}
+
+li {
+  display: inline;
+}
+
+img {
+  margin-top: -16px;
+}
+
+/* Main container */
+
+.main-container {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+}
+
+/* Slider container */
+.slider-container {
+  position: relative;
+  height: 100%
+}
+
+/* dots carrusel */
+.dots-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dot-container-item {
+  margin: 8px 3px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Arrows */
+.leftArrow {
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar el mouse por encima */
+  user-select: none; /* Evita la selección de texto en la flecha */
+}
+
+.rightArrow {
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none; /* Evita la selección de texto en la flecha */
+}
+
+.container-images {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+div.active {
+  background: #ccc;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.main-footer {
+  color: white;
+  background-color: #49426c;
+  padding-top: 3em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 100px; 
+}
+
+.reserva{
+justify-content: center;
+margin-left: 400px;
+margin-right: 400px;
+border-radius: 5% ;
+background-color:rgb(150, 182, 197);
+}
+
+.titulo_reserva{
+  margin-left: 100px;
+  font-size: 50px;
+}
+
+.reserva_boton {
+  margin-top: 10px;
+  margin-left: 200px;
+  width: 100px; 
+  height: 30px; 
+  font-size: 18px; 
+  border-radius: 10%;
+}
+.form-group_edit{
+  margin-left: 80px;
+}
+
+.tdusuario {
+  border: 1px solid #ccc; 
+  padding: 5px; 
+}
+
+.table-primary{
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.containerU{
+  max-width: 768px
+}
+
+
+
+/*popup*/
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none;
+  border-radius: 50%; /* Forma redondeada del botón */
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #cc0000; /* Cambio de color al pasar el ratón por encima del botón */
+}
