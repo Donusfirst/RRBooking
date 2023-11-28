@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import CrearUser from "./CrearUser";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "../";
 
@@ -68,6 +67,8 @@ const CompShowUser = () => {
                                     <td className="tdusuario">{user.correo_electronico}</td>
                                     <td className="tdusuario">{user.rol_usuario}</td>
                                     <td>
+                                        <Link to={`/Editar/${user.usuario_id}`} className="btn btn-info" onClick={handleReload}>Editar</Link>
+
                                         <button onClick={() => deleteUsuario(user.usuario_id)} className="btn btn-danger">Eliminar</button>
                                     </td>
                                 </tr>

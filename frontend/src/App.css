@@ -191,3 +191,23 @@ background-color:rgb(150, 182, 197);
 .close-button:hover {
   background-color: #cc0000; /* Cambio de color al pasar el ratón por encima del botón */
 }
+
+
+.overlay-button-container {
+  position: relative;
+}
+
+.overlay-button {
+  position: absolute;
+  top: 50%;
+  left: 88%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(68, 0, 255);
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+

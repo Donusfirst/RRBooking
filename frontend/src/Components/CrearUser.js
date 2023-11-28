@@ -9,7 +9,7 @@ const CrearUser = () => {
   const [apellido, setApellido] = useState('');
   const [correo_electronico, setCorreoElectronico] = useState('');
   const [rol_usuario, setRolUsuario] = useState('');
-  const [contrasena, setContrasena]= useState('');
+  const [contraseña, setContraseña]= useState('');
   const [telefono, setTelefono]= useState('');
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showEmptyFieldsError, setShowEmptyFieldsError] = useState(false);
@@ -27,8 +27,8 @@ const CrearUser = () => {
         apellido: apellido,
         correo_electronico: correo_electronico,
         rol_usuario: rol_usuario,
-        contrasena: contrasena,
-        telefono: telefono,
+        contraseña: contraseña,
+      telefono: telefono,
       });
       setSuccessMessage('Usuario registrado correctamente.');
       setShowSuccessMessage(true);
@@ -39,7 +39,7 @@ const CrearUser = () => {
       setCorreoElectronico('');
       setRolUsuario('');
       setTelefono('');
-      setContrasena('');
+      setContraseña('');
 
     } catch (error) {
       console.error('Error al enviar los datos al servidor:', error);
@@ -103,8 +103,8 @@ const CrearUser = () => {
           />
             <label className='form-label'>Contraseña</label>
           <input
-            value={contrasena}
-            onChange={(e) => setContrasena(e.target.value)}
+            value={contraseña}
+            onChange={(e) => setContraseña(e.target.value)}
             type='password'
             className='form-control'
           />

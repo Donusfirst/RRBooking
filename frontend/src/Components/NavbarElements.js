@@ -38,13 +38,13 @@ export const Menu = styled.ul`
 `;
 export const MenuItem = styled.div`
     height: 0%;
-    padding:0.5rem 1.5rem;
+    padding:0.5rem 10rem;
     diplay:flex;
     justify-content:center;
     align-items:center;
     font-size:1.2rem;
     font-family:"Oswald";
-    font-weight: 400;
+    font-weight: 500;
 
 `;
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from '../Components/Navbar';
 import SlideImages from '../Components/SlideImages';
+import OverlayButton from '../Components/botonReservas';
 import Footer from '../Components/Footer';
-
 
 
 function Home() {
@@ -10,6 +10,7 @@ function Home() {
     <div>
       <Navbar/>
       <SlideImages style={{ flex: 1 }} />
+      <OverlayButton/>
       <Footer/>
     </div>
   )

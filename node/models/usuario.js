@@ -11,7 +11,7 @@ const UsuarioModel = db.define('usuarios',{
     nombre:{type: DataTypes.STRING},
     apellido:{type: DataTypes.STRING},
     correo_electronico:{type: DataTypes.STRING},
-    contrasena:{type: DataTypes.STRING},
+    contraseña:{type: DataTypes.STRING},
     telefono:{type: DataTypes.STRING},
 })
 
