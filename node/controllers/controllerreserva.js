@@ -1,21 +1,22 @@
-import ReservaModel from "../models/reservas.js";
+import ReservaModel from "../models/reserva.js";
 
-// Métodos para el CRUD
+//* Métodos para el CRUD de Reservas
 
-// Mostrar todos los reservas
+//* Mostrar todas las reservas
 export const getAllReservas = async (req, res) => {
     try {
-        const reserva = await ReservaModel.findAll();
-        res.json(reserva);
+        const reservas = await ReservaModel.findAll();
+        res.json(reservas);
     } catch (error) {
         res.json({ message: error.message });
     }
 };
 
+//* Encontrar una reserva
 export const getReserva = async (req, res) => {
     try {
         const reserva = await ReservaModel.findAll({
-            where: { reserva_id: req.params.reserva_id }
+            where: { reserva_id: req.params.reserva_id },
         });
         if (reserva) {
             res.json(reserva);
@@ -27,6 +28,7 @@ export const getReserva = async (req, res) => {
     }
 };
 
+//* Crear una reserva
 export const createReserva = async (req, res) => {
     try {
         await ReservaModel.create(req.body);
@@ -36,23 +38,25 @@ export const createReserva = async (req, res) => {
     }
 };
 
+//* Actualizar un registro de reserva
 export const actualizarReserva = async (req, res) => {
     try {
         await ReservaModel.update(req.body, {
-            where: { reserva_id: req.params.reserva_id }
+            where: { reserva_id: req.params.reserva_id },
         });
-        res.json({ message: "Registro reserva actualizado correctamente!" });
+        res.json({ message: "Reserva actualizada correctamente!" });
     } catch (error) {
         res.json({ message: error.message });
     }
 };
 
+//* Eliminar una reserva
 export const borrarReserva = async (req, res) => {
     try {
         await ReservaModel.destroy({
-            where: { reserva_id: req.params.reserva_id }
+            where: { reserva_id: req.params.reserva_id },
         });
-        res.json({ message: "Registro Reserva eliminado correctamente!" });
+        res.json({ message: "Reserva eliminada correctamente!" });
     } catch (error) {
         res.json({ message: error.message });
     }

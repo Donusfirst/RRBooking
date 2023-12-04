@@ -1,81 +1,72 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import validacion from '../Components/LoginValidation'
-import Navbar from '../Components/Navbar'
-import { Axios } from 'axios'
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios'; // Importa Axios
 
-function Login() {
-
-  const login = ()=> {
-    Axios.post("http://localhost:8000/usuario",{
-     values: values
-
-    }).then((response)=>{
-      console.log(response);
-    });
-  }
-
-  function useReloadAndRedirect() {
-    const [shouldReload, setShouldReload] = useState(false);
-    const handleReload = () => {
-      setShouldReload(true);
-    };
-    if (shouldReload) {
+import Navbar from '../Components/Navbar';
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const history = useHistory();
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await axios.post('http://localhost:8000/api/login', {
+        email,
+        password,
+      });
+      const {token } = response.data;
+      localStorage.setItem('token', token);
+      console.log(token);
+      // Redirige a la página de inicio después de iniciar sesión
+      history.push('/home');
       window.location.reload();
+      // Lógica adicional después de iniciar sesión, por ejemplo, redireccionar a otra página
+      // Puedes usar la función de redirección de React Router o window.location.href 
+    } catch (error) {
+      console.error(error)
     }
-    return handleReload;
-  }
-
-  const handleReload = useReloadAndRedirect();
-  const [values,setValues] = useState({
-    correo_electronico:'',
-    contraseña:''
-  })
-
-  const [errors,setErrors]=useState({})
-  const hundleInput=(event)=>{
-    setValues(prev=>({...prev,[event.target.name]:[event.target.value]}))
-  }
-
-  const hundleSumbit =(event)=>{
-    event.preventDefault();
-    setErrors(validacion(values));
-  }
-
-
+  };  
   return (
     <div style={{ height: '100vh', overflow: 'hidden' }}>
-      <Navbar/>
+      <Navbar />
       <div className='d-flex justify-content-center align-items-center fondo-login' style={{ height: '100%' }}>
-      <div className='p-3 bg-white rounded w-25' style={{ marginTop: '-80px' }}>
-      <h2>Bienvenido</h2>
-        <form action ="" onSubmit={hundleSumbit}>
-          <div className='mb-3'>
-            <label htmlFor='correo_electronico'><strong>Email</strong></label>
-            <input type='correo_electronico'placeholder='Ingresar Correo' name='correo_electronico'
-            onChange={hundleInput} className='form-control rounded-0'/>
-            {errors.correo_electronico && <span className='text-danger'>{errors.correo_electronico}</span>}
-          </div>
-          <div className='mb-3'>
-            <label htmlFor='password'><strong>Contraseña</strong></label>
-            <input type='password'placeholder='Contraseña' name='contraseña'
-            onChange={hundleInput} className='form-control rounded-0'/>
-            {errors.contraseña && <span className='text-danger'>{errors.contraseña}</span>}
-          </div>
-          <div className='mb-3'>
-          </div>
-            <button onClick={login}>Login</button>
+        <div className='p-3 bg-white rounded w-25' style={{ marginTop: '-80px' }}>
+          <h2>Bienvenido</h2>
+          <form action='' onSubmit={handleSubmit}>
+            <div className='mb-3'>
+              <label htmlFor='nombre'><strong>Nombre de Usuario</strong></label>
+              <input
+                type='email'
+                placeholder='Ingresar Nombre de Usuario'
+                name='nombre'
+                className='form-control rounded-0'
+                value={email} onChange={(e) => setEmail(e.target.value)}
+              />
+              
+            </div>
+            <div className='mb-3'>
+              <label htmlFor='contrasena'><strong>Contraseña</strong></label>
+              <input
+                type="password"
+                placeholder='Contraseña'
+                name='contrasena'
+                className='form-control rounded-0'
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)}
+              />             
+            </div>
+            <div className='mb-3'></div>
+            <button type='submit' className='btn btn-success w-100'>Entrar</button>
             <p>¿No tienes cuenta?</p>
-            <Link to="/Registrarte" className='btn btn-dark text-light w-100'onClick={handleReload}>Crear Cuenta</Link>
+            <Link to='/Registrarte' className='btn btn-dark text-light w-100'>Crear Cuenta</Link>
           </form>
+        </div>
       </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Login
-
-
+export default Login;

@@ -1,59 +1,54 @@
-import express from "express";
+// Importar módulos usando la sintaxis ESM
+import express from 'express';
 import cors from 'cors';
-import db from "./database/db.js"
-import usuariorouts from "./routs/routsusuarios.js"
+import db from './database/db.js';
+import usuariorouts from './routs/routsusuarios.js';
+import session from 'express-session';
+import bodyParser from 'body-parser';
+import authRoutes from './routs/authRoutes.js';
 
 
-const app = express()
 
-app.use(cors())
-app.use(express.json())
-app.use('/usuario', usuariorouts)
+// Crear la aplicación Express
+const app = express();
+
+// Configurar el middleware para analizar el cuerpo de la solicitud
+app.use(bodyParser.json());
+
+// Configurar el middleware para permitir solicitudes desde cualquier origen
+app.use(cors());
+
+// Configurar el middleware para analizar el cuerpo de la solicitud en formato JSON
+app.use(express.json());
 
 
+app.use(express.json());
+app.use(
+  session({
+    secret: 'tu_secreto',
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use('/api', authRoutes);
+app.use('/usuario', usuariorouts);
+
+
+// Intentar autenticar con la base de datos
 try {
-    await db.authenticate()
-    console.log('CONECCION EXITOSA A LA BD')
+  await db.authenticate();
+  console.log('CONEXIÓN EXITOSA A LA BD');
 } catch (error) {
-    console.log(`EL ERROR DE CONECCION ES: ${error}`)
+  console.log(`EL ERROR DE CONEXIÓN ES: ${error}`);
 }
 
-app.get ('/Registrarte',(req,res)=>{
-    const nombre = req.body.nombre;
-    const apellido = req.body.apellido;
-    const contraseña = req.body.contraseña;
-    const correo_electronico = req.body.correo_electronico;
-    db.query("INSERT IN TO usuario(nombre,apellido,contraseña,correo_electronico) VALUES (?,?,?,?)",
-    [nombre,apellido,contraseña,correo_electronico],
-    (err,result)=>{
-        console.log(err);
-    }
-
-    );
+// Definir una ruta de prueba
+app.get('/', (req, res) => {
+  res.send('Servidor levantado perrras');
 });
 
-app.post('/Login',(req,res)=>{
-    const correo_electronico = req.body.correo_electronico;
-    const contraseña = req.body.contraseña;
-    
-    db.query(
-        "SELECT * FROM usuarios WHERE correo_electronico = ? AND contraseña = ?",
-        [correo_electronico,contraseña],
-        (err,result)=>{
-            if (err){
-                res.send({err:err})
-            }
-            if (result,length > 0){
-                res.send(result);
-
-            }else{
-                res.sed({messege: "Error en la convinacion Correo/Contraseña!"})
-            }
-
-        }
-    );
-})
-
-app.listen(8000, ()=>
-console.log('server up running in http://localhost:8000')
-)
+// Iniciar el servidor en el puerto 8000
+app.listen(8000, () =>
+  console.log('Servidor en funcionamiento en http://localhost:8000')
+);

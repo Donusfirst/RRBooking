@@ -14,6 +14,7 @@ const CompShowUser = () => {
     const getUsuario = async () => {
         try {
             const resp = await axios.get(URI);
+            console.log(resp.data);
             setUsuario(resp.data);
         } catch (error) {
             console.error("Error al obtener usuarios:", error);
@@ -59,6 +60,7 @@ const CompShowUser = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            {console.log(usuario)}
                             {usuario.map((user) => (
                                 <tr key={user.usuario_id}>
                                     <td className="tdusuario">{user.nombre}</td>

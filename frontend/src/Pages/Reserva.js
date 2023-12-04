@@ -47,10 +47,8 @@ function Reserva() {
   return (
     <div>
       <Navbar />
-      <br/>
       <div className="reserva">
         <h2 className='titulo_reserva'>Haz tu reserva</h2>
-    
         <form onSubmit={handleSubmit}>
           <div className="form-group_edit">
             <label>Selecciona una fecha:</label>
@@ -63,7 +61,6 @@ function Reserva() {
               placeholderText="Selecciona una fecha"
             />
           </div>
-          <br/>
           <div className="form-group_edit">
             <label>Selecciona una hora: </label>
             <select value={selectedTime} onChange={handleTimeChange}>
@@ -74,7 +71,6 @@ function Reserva() {
               <option value="16:00">04:00 PM</option>
             </select>
           </div>
-          <br/>
           <div className="form-group_edit">
             <label>Selecciona la Mesa:</label>
             <select value={selectedMesa} onChange={handleMesaChange}>
@@ -87,7 +83,6 @@ function Reserva() {
           </div>
           <br/>
           <button className='reserva_boton' type="submit">Reservar</button>
-
         </form>
         <br/>
         <br/>

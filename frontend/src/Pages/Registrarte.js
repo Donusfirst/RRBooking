@@ -11,7 +11,7 @@ function Registrate() {
     nombre: '',
     apellido: '',
     correo_electronico: '',
-    contraseña: ''
+    contrasena: ''
   });
   const [errors, setErrors] = useState({});
 
@@ -37,6 +37,8 @@ function Registrate() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
+
     axios.post('http://localhost:8000/usuario', values)
       .then((res) => {
         console.log('Registro exitoso', res.data);
@@ -94,8 +96,8 @@ function Registrate() {
               <input
                 type='password'
                 placeholder='Contraseña'
-                name='contraseña'
-                value={values.contraseña}
+                name='contrasena'
+                value={values.contrasena}
                 onChange={handleInput}
                 className='form-control rounded-0'
               />

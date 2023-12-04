@@ -7,12 +7,13 @@ const UsuarioModel = db.define('usuarios',{
     usuario_id:{type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement:true},
-    rol_usuario:{type: DataTypes.STRING},
+    rol_usuario:{type: DataTypes.STRING, },
     nombre:{type: DataTypes.STRING},
-    apellido:{type: DataTypes.STRING},
+    apellido:{type: DataTypes.STRING, },
     correo_electronico:{type: DataTypes.STRING},
-    contraseña:{type: DataTypes.STRING},
-    telefono:{type: DataTypes.STRING},
+    contrasena:{type: DataTypes.STRING},
+    telefono:{type: DataTypes.STRING, },
 })
 
-export default UsuarioModel
+
+export default UsuarioModel;
